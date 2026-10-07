@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'">
+  <title>Nguyễn Tất Tấn Tài — DevConf 2026</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <header>
+    <h1>DevConf 2026</h1>
+    <p>Built with vanilla web standards — no frameworks, no libraries.</p>
+  </header>
+
+  <main id="main">
+    <!-- SLICE 1: Drift-free countdown -->
+    <section class="countdown" aria-labelledby="cd-h">
+      <h2 id="cd-h">Starts in</h2>
+      <time
+        id="countdown-target"
+        datetime="2026-12-31T23:59:59Z"
+        data-target="2026-12-31T23:59:59Z"
+      >
+        <span id="cd-display" role="timer" aria-live="off">--:--:--</span>
+      </time>
+    </section>
+
+    <!-- Highlights -->
+    <section class="highlights" aria-labelledby="hl-h">
+      <h2 id="hl-h">Highlights</h2>
+      <ul class="card-grid">
+        <li>
+          <article class="card">
+            <h3>Vanilla Web Standards</h3>
+            <p>Build modern web experiences with semantic HTML, CSS, and JavaScript.</p>
+          </article>
+        </li>
+        <li>
+          <article class="card">
+            <h3>Resilient Architecture</h3>
+            <p>Learn practical techniques for accessible, robust, and maintainable interfaces.</p>
+          </article>
+        </li>
+        <li>
+          <article class="card">
+            <h3>Developer Experience</h3>
+            <p>Focus on performance, usability, and standards-first development workflows.</p>
+          </article>
+        </li>
+      </ul>
+    </section>
+
+    <!-- SLICE 2 + SLICE 3: Form FSM + sanitize -->
+    <section class="register" aria-labelledby="reg-h">
+      <h2 id="reg-h">Register</h2>
+      <form id="register-form" novalidate>
+        <p>
+          <label for="reg-name">Full name:</label>
+          <input
+            id="reg-name"
+            name="name"
+            type="text"
+            required
+            minlength="3"
+            maxlength="80"
+            aria-describedby="name-hint"
+            autocomplete="name"
+          >
+          <small id="name-hint">At least 3 characters.</small>
+        </p>
+
+        <p>
+          <label for="reg-email">Email:</label>
+          <input
+            id="reg-email"
+            name="email"
+            type="email"
+            required
+            maxlength="254"
+            autocomplete="email"
+          >
+        </p>
+
+        <p>
+          <label for="reg-msg">Message (optional):</label>
+          <textarea id="reg-msg" name="message" rows="4" maxlength="2000"></textarea>
+        </p>
+
+        <button id="reg-submit" type="submit">Register</button>
+        <p id="form-status" role="status" aria-live="polite" data-state="idle"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Nguyễn Tất Tấn Tài. Built with vanilla web standards.</p>
+  </footer>
+
+  <!-- SCRIPT LOAD ORDER: sanitize PHẢI trước form-state -->
+  <script src="js/sanitize.js" defer></script>
+  <script src="js/form-state.js" defer></script>
+  <script src="js/countdown.js" defer></script>
+</body>
+</html>
