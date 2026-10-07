@@ -102,7 +102,15 @@
     <p>© 2026 Nguyễn Tất Tấn Tài. Built with vanilla web standards.</p>
   </footer>
 
-  <!-- SCRIPT LOAD ORDER: sanitize PHẢI trước form-state -->
+  <!--
+    SCRIPT LOAD ORDER (dependency chain):
+    1. sanitize.js    → defines window.__sanitizeFormData + window.__withSubmitGuard
+    2. form-state.js  → calls the 2 functions above; MUST load AFTER sanitize.js
+    3. countdown.js   → independent; any order after sanitize is fine
+
+    All scripts use defer, so execution order = DOM order.
+    Reversing #1 and #2 will cause form-state.js to warn and skip its init.
+  -->
   <script src="js/sanitize.js" defer></script>
   <script src="js/form-state.js" defer></script>
   <script src="js/countdown.js" defer></script>
