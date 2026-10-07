@@ -1,0 +1,102 @@
+.skip-link {
+  position: absolute;
+  inset-inline-start: -9999px;
+  background: var(--accent);
+  color: var(--accent-contrast);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius);
+  z-index: 100;
+}
+
+.skip-link:focus {
+  inset-inline-start: var(--space-3);
+  top: var(--space-3);
+}
+
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--space-4);
+}
+
+.card h3 {
+  margin-block-end: var(--space-2);
+}
+
+form p {
+  margin-block: var(--space-2);
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-block-end: var(--space-1);
+}
+
+small {
+  color: var(--muted);
+  font-size: .8rem;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: var(--space-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg);
+  color: var(--text);
+}
+
+input:invalid:not(:placeholder-shown),
+textarea:invalid:not(:placeholder-shown) {
+  border-color: var(--danger);
+}
+
+input:valid:not(:placeholder-shown),
+textarea:valid:not(:placeholder-shown) {
+  border-color: var(--success);
+}
+
+button[type="submit"] {
+  background: var(--accent);
+  color: var(--accent-contrast);
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  padding: var(--space-2) var(--space-3);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  filter: brightness(1.08);
+}
+
+button[type="submit"]:disabled {
+  opacity: .6;
+  cursor: not-allowed;
+}
+
+#form-status {
+  margin-block-start: var(--space-2);
+  font-weight: 600;
+}
+
+#form-status[data-state="success"] {
+  color: var(--success);
+}
+
+#form-status[data-state="error"] {
+  color: var(--danger);
+}
+
+#form-status[data-state="submitting"] {
+  color: var(--muted);
+}
